@@ -36,6 +36,20 @@ class Stack {
     return this.count;
   }
 
+  toString() {
+    if (this.isEmpty()) {
+      return '';
+    }
+
+    let objString = `${this.items[0]}`;
+
+    for (let i = 1; i < this.count; i++) {
+      objString = `${objString}, ${this.items[i]}`;
+    }
+
+    return objString;
+  }
+
   clear() {
     this.count = 0;
     this.items = {};
