@@ -25,6 +25,10 @@ export default class Set {
     return Object.prototype.hasOwnProperty.call(this.items, element);
   }
 
+  values() {
+    return Object.values(this.items);
+  }
+
   isEmpty() {
     return this.size() === 0;
   }
@@ -35,5 +39,20 @@ export default class Set {
 
   clear() {
     this.items = {};
+  }
+
+  toString() {
+    if (this.isEmpty()) {
+      return '';
+    }
+
+    const values = this.values();
+    let objString = `${values[0]}`;
+
+    for (let i = 1; i < values.length; i++) {
+      objString = `${objString}, ${values[i].toString()}`;
+    }
+
+    return objString;
   }
 }
