@@ -1,5 +1,5 @@
 import { defaultToString } from './utils';
-import { ValuePair } from './models/value-pair';
+import { ValuePair } from './models/value-pair.js';
 
 export default class Dictionary {
   constructor(toStrFn = defaultToString) {
@@ -33,5 +33,17 @@ export default class Dictionary {
       return this.table[this.toStrFn(key)];
     }
     return undefined;
+  }
+
+  keyValues() {
+    return Object.values(this.table);
+  }
+
+  keys() {
+    return this.keyValues().map(valuePair => valuePair.key);
+  }
+
+  values() {
+    return this.keyValues().map(ValuePair => ValuePair.value);
   }
 }
