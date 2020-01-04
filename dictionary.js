@@ -46,4 +46,16 @@ export default class Dictionary {
   values() {
     return this.keyValues().map(ValuePair => ValuePair.value);
   }
+
+  size() {
+    return Object.keys(this.table).length;
+  }
+
+  isEmpty() {
+    return this.size() === 0;
+  }
+
+  clear() {
+    this.table = {};
+  }
 }
