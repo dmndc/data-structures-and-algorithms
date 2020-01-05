@@ -58,4 +58,19 @@ export default class Dictionary {
   clear() {
     this.table = {};
   }
+
+  toString() {
+    if (this.isEmpty()) {
+      return '';
+    }
+
+    const valuePairs = this.keyValues();
+    let objString = `${valuePairs[0].toString()}`;
+
+    for (let i = 1; i < valuePairs.length; i++) {
+      objString = `${objString}, ${valuePairs[i].toString()}`;
+    }
+
+    return objString;
+  }
 }
