@@ -22,4 +22,18 @@ export default class HashTable {
   hashCode(key) {
     return this.loseloseHashCode(key);
   }
+
+  put(key, value) {
+    if (key != null && value != null) {
+      const position = this.hashCode(key);
+      this.table[position] = new ValuePair(key, value);
+      return true;
+    }
+    return false;
+  }
+
+  get(key) {
+    const valuePair = this.table[this.hashCode(key)];
+    return valuePair == null ? undefined : valuePair.value;
+  }
 }
